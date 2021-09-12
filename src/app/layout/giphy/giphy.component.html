@@ -1,0 +1,51 @@
+
+
+ 
+
+
+
+<div class="giphy-content">
+    <div class="">
+        <input style="width: 100%; padding: 13px;
+      font-size: 20px;" type="text" matInput  [(ngModel)]= "giphyName" placeholder="Search.." (input)="searchGif()">
+    
+ 
+    </div>
+    <h4 style="color: white;"> Trending Gifs</h4>
+    <div style="margin-top: 30px;">
+    <div class="row">
+        <div *ngFor="let value of itemDetailList">
+
+            <img class="img-side" src="{{value.images.preview_gif.url}}" alt="" />
+
+        </div>
+    </div>
+    <div class="text-left">
+        <!-- pager -->
+        <ul *ngIf="itemDetailList && itemDetailList.length && pager.pages && pager.pages.length" class="pagination">
+    
+          <li>
+            <a class="pageinfor">
+              {{pager.startIndex+1}} to {{pager.endIndex+1}} of {{pager.totalItems}}
+            </a>
+          </li>
+          <li [ngClass]="{disabled:pager.currentPage === 1}">
+            <a (click)="getGiphyListDetail(1)">First</a>
+          </li>
+          <li  [ngClass]="{disabled:pager.currentPage === 1}">
+            <a (click)="getGiphyListDetail(pager.currentPage - 1)">Previous</a>
+          </li>
+          <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+            <a (click)="getGiphyListDetail(page)">{{page}}</a>
+          </li>
+          <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+            <a (click)="getGiphyListDetail(pager.currentPage + 1)">Next</a>
+          </li>
+          <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+            <a (click)="getGiphyListDetail(pager.totalPages)">Last </a>
+          </li>
+        </ul>
+      </div>
+</div>
+
+</div>
