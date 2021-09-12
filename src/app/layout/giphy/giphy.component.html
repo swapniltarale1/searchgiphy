@@ -41,9 +41,7 @@
           <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
             <a (click)="getGiphyListDetail(pager.currentPage + 1)">Next</a>
           </li>
-          <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-            <a (click)="getGiphyListDetail(pager.totalPages)">Last </a>
-          </li>
+   
         </ul>
       </div>
 </div>

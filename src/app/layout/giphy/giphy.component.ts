@@ -80,7 +80,7 @@ this.getGiphyListDetail(1)
           this.itemDetailList = data[keys[0]];
           this.PaginationObject.TotalRecords = this.itemDetailList.length > 0 ? data.pagination.total_count : 0;
           this.setPage(page)
-          console.log("foodList:::--itemDetailList", this.PaginationObject.TotalRecords);
+          
          
        },
         err => console.log('error--' + err)
